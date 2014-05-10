@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Comment:
+  = @comment.comment
+%p
+  %b Customer:
+  = @comment.customer_id
+%p
+  %b Ticket:
+  = @comment.ticket_id
+%p
+  %b User:
+  = @comment.user_id
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', comments_path
