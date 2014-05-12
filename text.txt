@@ -1,0 +1,9 @@
+new -> create -error->   	NoMethodError in Tickets#show, 
+							undefined method `current_url' for nil:NilClass, 
+							%b Current_url: = @ticket.current_url
+							url => http://localhost:3000/tickets/24
+update -> -error -> 		NoMethodError in TicketsController#update,
+							if @ticket.update(ticket_params) <- error
+							
+
+   

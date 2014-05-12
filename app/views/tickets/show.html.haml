@@ -16,6 +16,6 @@
   %b User:
   = @ticket.user_id
 
-= link_to 'Edit', edit_ticket_path(@ticket)
-\|
+= link_to 'Edit', edit_ticket_path(@ticket.current_url)
+
 = link_to 'Back', tickets_path
