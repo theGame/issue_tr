@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
       
       @ticket.generate_current_url(ticket_params[:current_url])
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' } #'/tickets/' + ticket_params[:current_url]
         format.json { render action: 'show', status: :created, location: @ticket }
       else
         format.html { render action: 'new' }
