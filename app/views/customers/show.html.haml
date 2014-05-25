@@ -1,12 +1,16 @@
 %p#notice= notice
-
-%p
-  %b Name:
-  = @customer.name
-%p
-  %b Email:
-  = @customer.email
-
-= link_to 'Edit', edit_customer_path(@customer)
-\|
-= link_to 'Back', customers_path
+#show_customer
+  %p
+    %b Name:
+    = @customer.name
+  %p
+    %b Email:
+    = @customer.email
+#show_tickets
+  = render 'show_tickets'
+#show_users
+  = render 'show_users'
+.nav_link
+  = link_to 'Edit', edit_customer_path(@customer)
+  \|
+  = link_to 'Back', customers_path

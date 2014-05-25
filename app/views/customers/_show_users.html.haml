@@ -1,0 +1,8 @@
+- unless @show_users.empty?
+  %table
+    %tr
+      %th Users
+    - @show_users.each do |f|
+      %tr
+        %td= link_to f.name, controller: "users", action: "show", id: f.id
+       

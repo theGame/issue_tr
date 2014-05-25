@@ -1,4 +1,7 @@
 class Ticket < ActiveRecord::Base
+  validates :customer_id, presence: true
+  belongs_to :customer
+  belongs_to :user
   
   def generate_current_url res
     length = 3

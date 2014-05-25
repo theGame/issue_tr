@@ -10,6 +10,11 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @show_tickets = Ticket.where("customer_id = ?", params[:id]) #norm 
+    p "-------------show_ticket------------->#{@show_tickets}"
+    @show_users = Customer.joins(:user)
+    .where("customer_id = ?", params[:id])
+    .select("*")
   end
 
   # GET /customers/new

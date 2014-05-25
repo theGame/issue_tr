@@ -1,25 +1,54 @@
-= form_for @ticket do |f|
-  - if @ticket.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
-      %ul
-        - @ticket.errors.full_messages.each do |msg|
-          %li= msg
-  - unless @current_url == false
+- if @condition == 'edit'
+  = form_for @ticket, :url => '/tickets/' + @ticket.current_url, :controller => 'ticket'  do |f|
+    - if @ticket.errors.any?  
+      #error_explanation
+        %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
+        %ul
+          - @ticket.errors.full_messages.each do |msg|
+            %li= msg
+    - unless @current_url == false
+      .field
+        = f.label :current_url
+        = f.text_field :current_url
     .field
-      = f.label :current_url
-      = f.text_field :current_url
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :status
-    = f.text_field :status
-  .field
-    = f.label :customer_id
-    = f.number_field :customer_id
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .actions
-    = f.submit 'Save'
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :status
+      = f.text_field :status
+    .field
+      = f.label :customer_id
+      = f.number_field :customer_id
+    .field
+      = f.label :user_id
+      = f.number_field :user_id
+    .actions
+      = f.submit 'Save'
+- elsif @condition == 'new'
+  = form_for @ticket do |f|
+    - if @ticket.errors.any?  
+      #error_explanation
+        %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
+        %ul
+          - @ticket.errors.full_messages.each do |msg|
+            %li= msg
+    - unless @current_url == false
+      .field
+        = f.label :current_url
+        = f.text_field :current_url
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :status
+      = f.text_field :status
+    .field
+      = f.label :customer_id
+      = f.number_field :customer_id
+    .field
+      = f.label :user_id
+      = f.number_field :user_id
+    .actions
+      = f.submit 'Save'
+- else
+  h1.undefine-action Please have a look to yours Ticket controller, wiev doesn't know this ation. 

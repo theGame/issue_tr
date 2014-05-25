@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8", http-equiv="Content-Type">
+	</head>
+	<body>
+		<h3>Customer <%= @send_customer.name %> created new ticket</h3>
+		<ul>
+			<li>Current_url : <%= @ticket.current_url %></li>
+			<li>Title : <%= @ticket.title %></li>
+			<li>Status : <%= @ticket.status %></li>
+		</ul>
+		<div id="ticket_url">
+			<a href="ticket/<%= @ticket.current_url %>"><i>Go to ticket url</i></a>
+		</div>
+		<h6>Thanks a lot !</h6>
+	</body>
+</html>

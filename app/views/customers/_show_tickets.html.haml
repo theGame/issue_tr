@@ -1,0 +1,16 @@
+- unless @show_tickets.empty?
+  %table
+    %tr
+      %th Title
+      %th Status
+      %th URL
+    - @show_tickets.each do |f|
+      %tr
+        %td= f.title
+        %td= f.status
+        %td= f.current_url
+
+
+     
+  
+  

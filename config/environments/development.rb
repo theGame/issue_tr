@@ -14,8 +14,21 @@ IssueTrackin::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  #Send Email In Development (Use Gmail's Servers)
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "gmail.com",
+      :user_name            => "voytas1991@gmail.com",
+      :password             => "03111987",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+  }
+  config.action_mailer.default_url_options = {
+      :host => "localhost:3000"
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -27,3 +40,5 @@ IssueTrackin::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 end
+
+  

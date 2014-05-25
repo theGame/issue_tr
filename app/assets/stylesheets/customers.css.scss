@@ -1,3 +1,17 @@
 // Place all the styles related to the Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  #show_customer, #show_tickets, #show_users{
+    min-width: 200px;
+    max-width: 400px;
+    height: 100%;
+    float: left;
+    padding-left: 40px;
+  }
+  .nav_link{
+    clear: left;    
+  }
+  
+}
+
