@@ -5,7 +5,6 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all.paginate(:page => params[:page], :per_page => 15)
-    #p "looooooook->#{@condition}"
   end
 
   # GET /tickets/1
@@ -35,10 +34,11 @@ class TicketsController < ApplicationController
       @ticket.generate_current_url(ticket_params[:current_url])
       begin
         @send_customer = Customer.find(ticket_params[:customer_id])
-      rescue Exception => e
-        flash[:notice] = "Can't find castomer with id = #{@send_customer}"
-        p "test condition -----------------------------------------------"
-        redirect_to :action => :index, :controller => "tickets"
+      rescue Exception => msg
+        flash[:error] = "Can't find Customer with this ticket"
+        #@ticket.errors.add(:name, "must be specified")     don't works
+        #p "test condition -----------------------------------------------#{@ticket.errors.first}"
+        redirect_to :action => :new, :controller => "tickets"
         return 0
       end
       if @ticket.save

@@ -1,4 +1,4 @@
-- if @condition == 'edit'
+- if @condition == 'edit' || @condition == 'update'
   = form_for @ticket, :url => '/tickets/' + @ticket.current_url, :controller => 'ticket'  do |f|
     - if @ticket.errors.any?  
       #error_explanation
@@ -15,7 +15,7 @@
       = f.text_field :title
     .field
       = f.label :status
-      = f.text_field :status
+      = f.select(:status, %w[Accept Cancle Pending], {inclde_blanck: true})
     .field
       = f.label :customer_id
       = f.number_field :customer_id
@@ -41,7 +41,7 @@
       = f.text_field :title
     .field
       = f.label :status
-      = f.text_field :status
+      = f.select(:status, %w[Accept Pending Cancel], {include_blank: true})
     .field
       = f.label :customer_id
       = f.number_field :customer_id
@@ -50,5 +50,5 @@
       = f.number_field :user_id
     .actions
       = f.submit 'Save'
-- else
-  h1.undefine-action Please have a look to yours Ticket controller, wiev doesn't know this ation. 
+- else 
+  test page, we have a problem in wiev 

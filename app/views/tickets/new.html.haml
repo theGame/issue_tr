@@ -1,5 +1,7 @@
 %h1 New ticket
-
+- if flash[:error]
+  #flash-message
+    %span= flash[:error] 
 = render 'form'
 
 = link_to 'Back', tickets_path
